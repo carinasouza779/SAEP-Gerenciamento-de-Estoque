@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciamento de Estoque</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="container">
+      <p class="marca">ESTOQUE<span>.</span></p>
+      <p class="subtitulo">Painel de gerenciamento</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="resumo">
+      <div>
+        <p class="texto-menor">Visão geral</p>
+        <h1>Produtos cadastrados</h1>
+      </div>
+      <div class="contador"><strong id="totalProdutos">0</strong><span>produtos</span></div>
+    </section>
+
+    <section class="painel">
+      <div class="cabecalho-painel">
+        <div>
+          <p class="texto-menor">Cadastro</p>
+          <h2 id="tituloFormulario">Adicionar produto</h2>
+        </div>
+      </div>
+
+      <form id="formProduto">
+        <input type="hidden" id="produtoId">
+
+        <div class="campos">
+          <label>Nome do produto
+            <input type="text" id="nome" placeholder="Ex.: Teclado" required>
+          </label>
+          <label>Categoria
+            <input type="text" id="categoria" placeholder="Ex.: Informática" required>
+          </label>
+          <label>Quantidade
+            <input type="number" id="quantidade" min="0" step="1" placeholder="0" required>
+          </label>
+          <label>Preço (R$)
+            <input type="number" id="preco" min="0" step="0.01" placeholder="0,00" required>
+          </label>
+        </div>
+
+        <div class="acoes-formulario">
+          <button type="submit" id="botaoSalvar">Cadastrar produto</button>
+          <button type="button" id="botaoCancelar" class="secundario oculto">Cancelar edição</button>
+        </div>
+      </form>
+      <p id="mensagem" class="mensagem" role="status"></p>
+    </section>
+
+    <section class="painel">
+      <div class="cabecalho-painel">
+        <div>
+          <p class="texto-menor">Controle</p>
+          <h2>Lista de produtos</h2>
+        </div>
+        <button type="button" id="botaoAtualizar" class="secundario">Atualizar lista</button>
+      </div>
+
+      <div class="tabela-responsiva">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th><th>Produto</th><th>Categoria</th>
+              <th>Quantidade</th><th>Preço</th><th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="listaProdutos">
+            <tr><td colspan="6" class="vazio">Carregando produtos...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>Sistema de gerenciamento de estoque • Projeto de estudo CRUD</p></footer>
+</body>
+</html>
